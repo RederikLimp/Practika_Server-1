@@ -15,3 +15,4 @@ class Disciplinesemployees extends Model
    public $timestamps = false;
    protected $table = 'disciplines-employees';
 }
+
