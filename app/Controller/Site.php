@@ -8,6 +8,7 @@ use Src\Validator\Validator;
 use Src\Request;
 use Model\User;
 use Src\Auth\Auth;
+use Model\Departament;
 
 
 
@@ -69,14 +70,45 @@ public function logout(): void
    app()->route->redirect('/hello');
 }
 
-public function job_tabel(): string
+public function job_tabel(Request $request): string
 {
+    $message = '';
+    if($request->method === "POST"){
+        
+        if ($request->kafedra) {
+            if (Departament::create(['Название кафедры' => $request->kafedra])) {
+                app()->route->redirect('/job_tabel');
+            }
+        }
+}
   return new View('site.job_tabel');
 }
 
 public function employee_tabel(): string
 {
+
   return new View('site.employee_tabel');
 }
 
+public function job_tabel2(Request $request): string
+{
+    $message = '';
+    if($request->method === "POST"){
+        
+        if ($request->kafedra) {
+            if (Departament::create(['Название кафедры' => $request->kafedra])) {
+                app()->route->redirect('/job_tabel2');
+            }
+        }
+}
+  return new View('site.job_tabel2');
+}
+public function job_tabel3(Request $request): string
+{
+
+$dep = Departament::all();
+return (new View())->render('site.job_tabel3', ['dep' => $dep]);
+
+  return new View('site.job_tabel3');
+}
 }
