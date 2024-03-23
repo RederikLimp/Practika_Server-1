@@ -1,17 +1,4 @@
-
-<h1 style="    text-align: center;
-    margin: 0;
-    height: 50px;
-    background-color: white;">Список Сотрудников</h1>
-
-    <div style="
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    align-content: center;
-    justify-content: space-around;
-    align-items: center;
-"  >
+<h1>Список Сотрудников</h1>
 <form action="" method="post">
 <p><input type="text" name="name" placeholder="Имя"></p>
 <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
